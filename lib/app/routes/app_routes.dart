@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:woman_safety_ui/features/ui/screens/sos_screen/sos_screen.dart';
 
 import '../../features/ui/screens/auth/screens/confirmed_password_screen.dart';
 import '../../features/ui/screens/auth/screens/forget_password_screen.dart';
@@ -28,6 +29,9 @@ class AppRoutes {
     }*/
     else if (settings.name == SignInScreen.name) {
       route =  SignInScreen();
+    }
+    else if (settings.name == SosScreen.name) {
+      route =  SosScreen();
     }
     else if (settings.name == SignUpScreen.name) {
       route =  SignUpScreen();

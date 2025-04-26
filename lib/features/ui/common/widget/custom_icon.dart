@@ -9,13 +9,13 @@ import '../../../../app/utils/sizes/size.dart';
 class CustomIcon extends StatelessWidget {
   const CustomIcon({
     super.key,
-    required this.icon,
+
     this.onTap,
     this.iconColor,
     this.iconSize,
   });
 
-  final IconData? icon;
+
   final void Function()? onTap;
   final Color? iconColor;
   final double? iconSize;
@@ -25,7 +25,7 @@ class CustomIcon extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Icon(
-        icon ?? Icons.arrow_back,
+        Icons.arrow_back,
         color: iconColor ?? AppColors.white,
         size: iconSize ?? AppSizes.iconMd(context),
       ),

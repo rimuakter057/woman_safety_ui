@@ -4,6 +4,7 @@ import 'package:woman_safety_ui/app/routes/app_routes.dart';
 import 'package:woman_safety_ui/app/utils/theme/theme.dart';
 import 'package:woman_safety_ui/features/ui/screens/main_nav_screen/main_nav_screen.dart';
 import '../features/ui/screens/auth/screens/sign_in_screen.dart';
+import '../features/ui/screens/sos_screen/sos_screen.dart';
 import 'controller_binder.dart';
 
 

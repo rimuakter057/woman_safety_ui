@@ -6,6 +6,7 @@ import 'package:woman_safety_ui/features/ui/screens/main_nav_screen/widget/botto
 import 'package:woman_safety_ui/features/ui/screens/profile/screens/profile_screen.dart';
 
 import '../HomeScreen/home_screen.dart';
+import '../sos_screen/sos_screen.dart';
 
 
 
@@ -23,7 +24,7 @@ class _MainNavScreenState extends State<MainNavScreen> {
 
     HomeScreen(),
     Scaffold(),
-    Scaffold(),
+    SosScreen(),
     ProfileScreen(),
   ];
 

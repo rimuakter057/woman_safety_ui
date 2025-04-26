@@ -42,16 +42,16 @@ class HomeScreen extends StatelessWidget {
                 child: GridView.builder(
                     shrinkWrap: true,
                     scrollDirection: Axis.vertical,
-                    itemCount: 5,
+                    itemCount: 3,
                     gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 3),
+                        crossAxisCount: 2),
                     itemBuilder: (context, index) {
                       return Padding(
                         padding:  EdgeInsets.all(AppSizes.defaultPadding(context)),
                         child: Column(
                           children: [
                             Container(
-                              height: size.height * .1,
+                              height: size.height * .15,
                               width: size.width * .18,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
