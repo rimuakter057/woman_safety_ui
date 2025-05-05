@@ -9,6 +9,8 @@ class AppTextFormFieldTheme {
 
 
     return InputDecorationTheme(
+      fillColor: AppColors.filled,
+      filled: true,
       errorMaxLines: 3,
       prefixIconColor: AppColors.grey,
       suffixIconColor: AppColors.grey,

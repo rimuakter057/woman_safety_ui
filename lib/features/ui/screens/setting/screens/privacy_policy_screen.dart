@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:woman_safety_ui/app/utils/color/app_colors.dart';
+import 'package:woman_safety_ui/features/ui/common/widget/custom_appbar.dart';
 
 import '../data/privacy_text.dart';
 
@@ -14,11 +16,8 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-/*      appBar:CustomImageAppBar(
-        title: "Privacy Policy",
-        onTap: () {
-          Get.back();
-        },),*/
+appBar: CustomAppBar(title: "privecy policy",),
+      drawer: Drawer(),
       body: ListView(
         padding: EdgeInsets.all(16),
         children: [
@@ -35,8 +34,8 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
           SizedBox(height: 16),
           ...privacyPolicyPoints.map(
                 (point) => ListTile(
-              leading: Icon(Icons.circle, size: 10, color: Colors.green),
-              title: Text(point,style: Theme.of(context).textTheme.titleSmall,),
+              leading: Icon(Icons.circle, size: 10, color: AppColors.primaryColor),
+              title: Text(point,style: Theme.of(context).textTheme.titleSmall!.copyWith(color: AppColors.black),),
               contentPadding: EdgeInsets.symmetric(horizontal: 8),
             ),
           ),

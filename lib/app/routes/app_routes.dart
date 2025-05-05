@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:woman_safety_ui/features/ui/screens/HomeScreen/home_screen.dart';
 import 'package:woman_safety_ui/features/ui/screens/sos_screen/sos_screen.dart';
 
 import '../../features/ui/screens/auth/screens/confirmed_password_screen.dart';
@@ -27,6 +28,9 @@ class AppRoutes {
 /*     else if (settings.name == SplashScreen.name) {
       route = const SplashScreen();
     }*/
+    else if (settings.name == HomeScreen.name) {
+      route =  HomeScreen();
+    }
     else if (settings.name == SignInScreen.name) {
       route =  SignInScreen();
     }

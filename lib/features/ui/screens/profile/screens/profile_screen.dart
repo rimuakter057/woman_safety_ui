@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:woman_safety_ui/app/utils/color/app_colors.dart';
+import 'package:woman_safety_ui/features/ui/common/widget/custom_icon.dart';
 import '../../../../../app/utils/sizes/size.dart';
 import '../../../common/Widget/custom_button.dart';
+import '../../../common/widget/custom_appbar.dart';
 import '../../auth/screens/sign_in_screen.dart';
 import '../../setting/screens/help_center_screen.dart';
 import '../../setting/screens/privacy_policy_screen.dart';
@@ -22,9 +25,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        /*appBar: CustomImageAppBar(title: "Profile Screen", onTap: () {
-          Get.back();
-        },),*/
+        appBar: CustomAppBar(title: "Profile Screen",
+          leadingWidget: CustomIcon(),
+        ),
       body: SingleChildScrollView(
         child: Column(children: [
           ///show profile

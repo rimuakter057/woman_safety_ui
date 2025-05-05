@@ -4,7 +4,9 @@ import 'package:woman_safety_ui/features/ui/screens/profile/screens/profile_scre
 
 import '../../../../../app/utils/sizes/size.dart';
 
+import '../../../common/widget/custom_appbar.dart';
 import '../../../common/widget/custom_button.dart';
+import '../../../common/widget/custom_icon.dart';
 import '../../../common/widget/custom_text_form_field.dart';
 import '../../auth/screens/widget/field_title_text.dart';
 import '../widget/profile_widget.dart';
@@ -26,9 +28,9 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-/*      appBar: CustomImageAppBar(title: "change password", onTap: () {
-        Get.back();
-      },),*/
+      appBar: CustomAppBar(title: "Profile Screen",
+        leadingWidget: CustomIcon(),
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.04), // responsive padding

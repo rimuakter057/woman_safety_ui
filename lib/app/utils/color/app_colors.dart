@@ -23,5 +23,7 @@ static const Color greyShade=Color(0xFFF5F5F5) ;
   static const Color amber = Color(0xFFFFC107); // Amber
   static const Color amberShade = Color(0xFFFFECB3);
   static const Color lime = Color(0xFFCDDC39); // Lime
+  static const Color background = Color(0xFFF8BBD0);
+  static const Color filled = Color(0xCCFFFFFF);
 
 }

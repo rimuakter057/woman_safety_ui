@@ -18,7 +18,7 @@ class SosScreen extends StatelessWidget {
     final width = size.width;
 
     return Scaffold(
-      backgroundColor: Colors.pink.shade100,
+      backgroundColor: AppColors.background,
       appBar: CustomAppBar(title: "sos screen",
       leadingWidget: CustomIcon( ),
       ),

@@ -17,7 +17,7 @@ class FloatingWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: AppSizes.height(context) * .06,
+      height: AppSizes.width(context) * .1,
       width: AppSizes.width(context) * .3,
       decoration: const BoxDecoration(
         borderRadius: BorderRadius.only(
@@ -26,18 +26,9 @@ class FloatingWidget extends StatelessWidget {
       ),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Row(
-          children: [
-            Icon(
-              Icons.question_answer,
-              color: AppColors.white,
-            ),
-            Spacer(),
-            Text(
-              "প্রশ্ন করুন?",
-              style: MyTextStyle.commonTextStyle,
-            ),
-          ],
+        child: Text(
+          "প্রশ্ন করুন?",
+          style: MyTextStyle.commonTextStyle,
         ),
       ),
     );

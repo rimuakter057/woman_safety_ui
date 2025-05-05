@@ -1,25 +1,26 @@
 
-
 final Map<String, List<String>> helpCenterData = {
   "Getting Started": [
-    "How to install and set up the app",
-    "How to create an account (if required)",
-    "Navigating the app features",
-    "Supported languages and regions",
+    "How to install and set up the Women Safety App",
+    "How to create and verify your account",
+    "Navigating safety features and emergency tools",
+    "Supported languages and available regions",
   ],
-  "Prayer & Worship Features": [
-    "How to check accurate prayer times",
-    "How to use the Qibla direction feature",
-    "How to set up Azan notifications",
+  "Safety & Emergency Features": [
+    "How to quickly send an SOS alert",
+    "How to share live location with trusted contacts",
+    "Setting up emergency contacts for quick access",
+    "Using the fake call feature for unsafe situations",
   ],
   "Personalization & Settings": [
-    "Enabling or disabling notifications",
-    "Customizing prayer reminders",
+    "Enabling or disabling emergency alerts",
+    "Customizing SOS button behavior",
+    "Setting up quick-access shortcuts",
   ],
-  "Dua & Prayer's": [
-    "How to read and listen to the Dua MP3",
-    "Selecting different reciters for Dua audio",
-    "Enabling translations and Tafsir explanations",
-    "How to access 99 Name Of Allah",
+  "Information & Awareness": [
+    "Reading safety tips and self-defense guidelines",
+    "Accessing nearby police stations and hospitals",
+    "Learning about legal rights and emergency helplines",
+    "How to stay safe while traveling alone",
   ],
 };

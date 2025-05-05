@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:woman_safety_ui/app/utils/color/app_colors.dart';
 
+import '../../../common/widget/custom_appbar.dart';
 import '../data/help_text.dart';
 
 class HelpCenterScreen extends StatefulWidget {
@@ -14,11 +16,7 @@ class _HelpCenterScreenState extends State<HelpCenterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-/*      appBar:CustomImageAppBar(
-        title: "Help Center",
-        onTap: () {
-          Get.back();
-        },),*/
+        appBar: CustomAppBar(title: "privecy policy",),
       body: ListView(
         padding: EdgeInsets.all(16),
         children: [
@@ -44,8 +42,8 @@ class _HelpCenterScreenState extends State<HelpCenterScreen> {
               ),
               ...section.value.map(
                     (point) => ListTile(
-                  leading: Icon(Icons.circle, size: 10, color: Colors.deepPurple),
-                  title:Text(point,style: Theme.of(context).textTheme.titleSmall,),
+                  leading: Icon(Icons.circle, size: 10, color: AppColors.primaryColor),
+                  title:Text(point,style: Theme.of(context).textTheme.titleSmall!.copyWith(color: AppColors.black),),
                   contentPadding: EdgeInsets.symmetric(horizontal: 8),
                   dense: true,
                 ),

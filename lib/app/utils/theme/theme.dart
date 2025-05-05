@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:woman_safety_ui/app/utils/color/app_colors.dart';
 
 import 'custom_theme/appbar_theme.dart';
 import 'custom_theme/bottom_sheet_theme.dart';
@@ -17,7 +18,7 @@ class AppTheme {
     fontFamily: 'Poppins',
     brightness: Brightness.light,
      // primaryColor: Colors.blue,
-    scaffoldBackgroundColor: Colors.white,
+    scaffoldBackgroundColor: AppColors.background,
     textTheme: AppTextTheme.lightTextTheme(context),
    // elevatedButtonTheme: AppElevatedButtonTheme.lightElevatedButtonThemeData,
    // outlinedButtonTheme: AppOutlinedButtonTheme.lightOutlinedButtonThemeData,
