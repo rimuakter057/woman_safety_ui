@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:woman_safety_ui/features/ui/screens/HomeScreen/home_screen.dart';
-import 'package:woman_safety_ui/features/ui/screens/sos_screen/sos_screen.dart';
 
-import '../../features/ui/screens/auth/screens/confirmed_password_screen.dart';
-import '../../features/ui/screens/auth/screens/forget_password_screen.dart';
-import '../../features/ui/screens/auth/screens/otp_send_screen.dart';
-import '../../features/ui/screens/auth/screens/otp_verify_screen.dart';
-import '../../features/ui/screens/auth/screens/password_change_screen.dart';
-import '../../features/ui/screens/auth/screens/sign_in_screen.dart';
-import '../../features/ui/screens/auth/screens/sign_up_screen.dart';
-import '../../features/ui/screens/main_nav_screen/main_nav_screen.dart';
-import '../../features/ui/screens/profile/screens/change_password_screen.dart';
-import '../../features/ui/screens/profile/screens/edit_profile_screen.dart';
-import '../../features/ui/screens/profile/screens/profile_screen.dart';
-import '../../features/ui/screens/setting/screens/help_center_screen.dart';
-import '../../features/ui/screens/setting/screens/privacy_policy_screen.dart';
+import '../../features/HomeScreen/home_screen.dart';
+import '../../features/auth/screens/confirmed_password_screen.dart';
+import '../../features/auth/screens/forget_password_screen.dart';
+import '../../features/auth/screens/otp_send_screen.dart';
+import '../../features/auth/screens/otp_verify_screen.dart';
+import '../../features/auth/screens/password_change_screen.dart';
+import '../../features/auth/screens/sign_in_screen.dart';
+import '../../features/auth/screens/sign_up_screen.dart';
+import '../../features/main_nav_screen/main_nav_screen.dart';
+import '../../features/profile/screens/change_password_screen.dart';
+import '../../features/profile/screens/edit_profile_screen.dart';
+import '../../features/profile/screens/profile_screen.dart';
+import '../../features/setting/screens/help_center_screen.dart';
+import '../../features/setting/screens/privacy_policy_screen.dart';
+import '../../features/sos_screen/sos_screen.dart';
 
 class AppRoutes {
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {

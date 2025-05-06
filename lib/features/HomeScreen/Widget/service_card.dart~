@@ -1,0 +1,74 @@
+import 'package:flutter/material.dart';
+import 'package:woman_safety_ui/app/asset_path.dart';
+
+import '../../../../../app/utils/color/app_colors.dart';
+import '../../../../../app/utils/sizes/size.dart';
+import '../../../../../app/utils/text_style.dart';
+
+
+
+
+
+class ServiceCard extends StatelessWidget {
+  final int index;
+
+  const ServiceCard({super.key, required this.index});
+
+  @override
+  Widget build(BuildContext context) {
+    final size = MediaQuery.sizeOf(context);
+
+    // Image source based on index (this could be dynamic based on your data)
+    final List<String> images = [
+      AssetImages.jakat,  // Replace with your image path
+      AssetImages.dua,
+      AssetImages.name,
+      AssetImages.jakat,  // Replace with your image path
+      AssetImages.jakat,
+      AssetImages.jakat,
+    ];
+
+    final List<String> titles = [
+      "SOS Service",
+      "Location Sharing",
+      "Emergency Alert",
+      "Medical Help",
+      "Fire Safety",
+      "Escort Service",
+    ];
+
+    return Card(
+      elevation: 5,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(10),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Image.asset(
+              images[index],
+              height: size.height * 0.2,
+              width: double.infinity,
+              fit: BoxFit.cover,
+            ),
+            SizedBox(height: size.height * 0.01),
+            Padding(
+              padding: EdgeInsets.all(AppSizes.defaultPadding(context)),
+              child: Text(
+                titles[index],
+                style: MyTextStyle.buttonTextStyle.copyWith(
+                  color: AppColors.black,
+                  fontWeight: FontWeight.bold,
+                  fontSize: size.height * 0.02,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
