@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:woman_safety_ui/app/routes/app_routes.dart';
 import 'package:woman_safety_ui/app/utils/theme/theme.dart';
+import 'package:woman_safety_ui/features/chatting/screens/HomePage/home_page.dart';
 import '../features/auth/screens/sign_in_screen.dart';
 import 'controller_binder.dart';
 
@@ -17,7 +18,7 @@ class WomanSafety extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme(context),
-      initialRoute: SignInScreen.name,
+      initialRoute: HomePage.name,
       onGenerateRoute: AppRoutes.onGenerateRoute,
       initialBinding: ControllerBinder(),
     );

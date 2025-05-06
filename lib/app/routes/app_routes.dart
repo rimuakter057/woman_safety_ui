@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:woman_safety_ui/features/chatting/screens/HomePage/home_page.dart';
 
 import '../../features/HomeScreen/home_screen.dart';
 import '../../features/auth/screens/confirmed_password_screen.dart';
@@ -69,6 +70,8 @@ class AppRoutes {
     }
     else if (settings.name == ProfileScreen.name) {
       route = const ProfileScreen();
+    } else if (settings.name == HomePage.name) {
+      route = const HomePage();
     }
 
 
