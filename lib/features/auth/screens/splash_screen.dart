@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:woman_safety_ui/features/auth/controllers/splash_controller.dart';
+
 
 import '../../../../../app/utils/color/app_colors.dart';
 import '../../../../../app/utils/sizes/size.dart';
@@ -15,34 +16,34 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
- /* bool _navigated = false;
+
+  SplashServices splashServices = SplashServices();
+
   @override
   void initState() {
+    // TODO: implement initState
     super.initState();
-    nextScreen();
+    splashServices.isSignIn();
   }
 
-  Future<void> nextScreen() async {
-    await Future.delayed(const Duration(seconds: 1));
-    if (!_navigated) {
-      _navigated = true;
-      Get.offNamed(SignInScreen.name);
-    }// Navigate to sign-in after splash
-  }*/
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.primaryColor,
+      backgroundColor: AppColors.white,
       body: Padding(
         padding: EdgeInsets.all(AppSizes.defaultPadding(context)),
         child: Center(
           child: Column(
             children: [
               const Spacer(),
-              Text(
-                "logo",
-                style: Theme.of(context).textTheme.headlineLarge,
-              ),
+              const Text("Your safety, our priority",style: TextStyle(
+                color: AppColors.primaryColor,
+                fontWeight: FontWeight.bold,
+                fontSize: 25
+              ),),
+            Image.asset("assets/images/logo/logo.png",height: 200,width: 200,
+            fit: BoxFit.fill,
+            ),
               const Spacer(),
             ],
           ),

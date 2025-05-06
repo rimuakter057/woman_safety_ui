@@ -2,7 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:woman_safety_ui/core/utils/toast_message.dart';
-import 'package:woman_safety_ui/features/auth/screens/sign_in_Phone_number.dart';
 import 'package:woman_safety_ui/features/auth/screens/sign_up_screen.dart';
 import 'package:woman_safety_ui/features/auth/screens/widget/field_title_text.dart';
 import 'package:woman_safety_ui/features/auth/screens/widget/rich_text.dart';
@@ -19,25 +18,20 @@ import '../../main_nav_screen/main_nav_screen.dart';
 
 import 'forget_password_screen.dart';
 
-class SignInScreen extends StatefulWidget {
-  const SignInScreen({super.key});
-  static const String name = '/sign-in ';
+class SignInPhoneScreen extends StatefulWidget {
+  const SignInPhoneScreen({super.key});
+  static const String name = '/sign-in-phone ';
 
   @override
-  State<SignInScreen> createState() => _SignInScreenState();
+  State<SignInPhoneScreen> createState() => _SignInPhoneScreenState();
 }
 
-class _SignInScreenState extends State<SignInScreen> {
-  FirebaseAuth _auth=FirebaseAuth.instance;
+class _SignInPhoneScreenState extends State<SignInPhoneScreen> {
+  FirebaseAuth _auth = FirebaseAuth.instance;
 
-  void  onTapSignIn()async{
+  void onTapSignIn() async {}
+  final TextEditingController numberController = TextEditingController();
 
-
-
-
-  }
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -52,7 +46,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     AppSizes.defaultPadding(context)), // responsive padding
                 child: Column(
                   children: [
-                    ///email and password field
+                    ///phone number
                     _buildTextForm(context),
 
                     ///forget password
@@ -66,7 +60,7 @@ class _SignInScreenState extends State<SignInScreen> {
                           onPressed: () {
                             Get.toNamed(ForgetPasswordScreen.name);
                           },
-                          child: Text("forget password",
+                          child: Text("forget number",
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyMedium!
@@ -85,20 +79,30 @@ class _SignInScreenState extends State<SignInScreen> {
 
                     ///sign in button
                     CustomButton(
-                      text: 'Sign In',
-                      onPressed: (){
-                        if(formKey.currentState!.validate()){
-                          _auth.signInWithEmailAndPassword(email: emailController.text.toString(),
-                              password: passwordController.text.toString()).then((value){
-                            Get.snackbar('Success', 'sign in successfully!');
-                            Get.offAllNamed(MainNavScreen.name);
-                          }).onError((error, stackTrace){
-                            Utils().toastMessage(error.toString());
-                          });
+                        text: 'Sign In',
+                        onPressed: () {
+                          if (formKey.currentState!.validate()) {
+                            _auth
+                                .verifyPhoneNumber(
+                                    phoneNumber: numberController.text,
+                                    verificationCompleted: (_) {},
+                                verificationFailed: (e) {
+                                      Utils().toastMessage(e.toString());
+                                },
+                                codeSent: (String verificationId, int? forceResendingToken) {
 
-                        }
-                      }
-                    ),
+                                },
+                                codeAutoRetrievalTimeout: (e) {
+                                  Utils().toastMessage(e.toString());
+                                })
+                                .then((value) {
+                              Get.snackbar('Success', 'sign in successfully!');
+                              Get.offAllNamed(MainNavScreen.name);
+                            }).onError((error, stackTrace) {
+                              Utils().toastMessage(error.toString());
+                            });
+                          }
+                        }),
                     SizedBox(
                       height: MediaQuery.of(context).size.width * 0.05,
                     ),
@@ -110,14 +114,6 @@ class _SignInScreenState extends State<SignInScreen> {
                       onTap: () {
                         Get.offAllNamed(SignUpScreen.name);
                       },
-                    ),
-                    ///sign in button
-                    CustomButton(
-                        text: 'Sign In Phone Number',
-                        onPressed: (){
-
-                          Get.toNamed(SignInPhoneScreen.name);
-                        }
                     ),
                   ],
                 ),
@@ -138,45 +134,22 @@ class _SignInScreenState extends State<SignInScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const FieldTitle(
-            text: 'Email',
-          ),
-          CustomTextFormField(
-            controller: emailController,
-            hintText: 'email334@gmail.com',
-            keyboardType: TextInputType.emailAddress,
-            validator: (String? value) {
-              if (value == null || value.isEmpty) {
-                return 'Email is required';
-              }
-              return RegexValidator.validateEmail(value);
-            },
-          ),
           SizedBox(
               height: MediaQuery.of(context).size.width *
                   0.04), // responsive spacing
           const FieldTitle(
-            text: 'Password',
+            text: 'phone number',
           ),
           TextFormField(
             style: AppTextStyles.inputTextStyle(context),
-            controller: passwordController,
+            controller: numberController,
             obscureText: false,
             decoration: InputDecoration(
-              hintText: 'Password',
-              suffixIcon: IconButton(
-                  icon: Icon(
-                    Icons.visibility,
-                    size: MediaQuery.of(context).size.width *
-                        0.06, // responsive icon size
-                  ),
-                  onPressed: () {
-                    print("toggle text");
-                  }),
+              hintText: 'phone number',
             ),
             validator: (String? value) {
-              if (value == null || value.isEmpty || value.length < 6) {
-                return 'password is required';
+              if (value == null || value.isEmpty || value.length < 11) {
+                return 'number is required';
               }
               return null;
             },
@@ -188,9 +161,7 @@ class _SignInScreenState extends State<SignInScreen> {
 
   @override
   void dispose() {
-    emailController.dispose();
-    passwordController.dispose();
+    numberController.dispose();
     super.dispose();
   }
-
- }
+}

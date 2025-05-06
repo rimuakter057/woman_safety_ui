@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:woman_safety_ui/core/utils/toast_message.dart';
 
 import '../../../../../app/utils/sizes/size.dart';
 
@@ -23,6 +25,7 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+  FirebaseAuth auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -90,7 +93,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ),
           SizedBox(height: AppSizes.width(context)*0.1,),
           CustomButton(text: "Logout", onPressed: (){
-            Get.offAllNamed(SignInScreen.name);
+            auth.signOut().then((value){
+              Get.offAllNamed(SignInScreen.name);
+            }).onError((error, stackTrace){
+              Utils().toastMessage(error.toString());
+            });
           }),
         ],
       ),

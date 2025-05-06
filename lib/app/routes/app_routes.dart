@@ -7,8 +7,10 @@ import '../../features/auth/screens/forget_password_screen.dart';
 import '../../features/auth/screens/otp_send_screen.dart';
 import '../../features/auth/screens/otp_verify_screen.dart';
 import '../../features/auth/screens/password_change_screen.dart';
+import '../../features/auth/screens/sign_in_Phone_number.dart';
 import '../../features/auth/screens/sign_in_screen.dart';
 import '../../features/auth/screens/sign_up_screen.dart';
+import '../../features/auth/screens/splash_screen.dart';
 import '../../features/main_nav_screen/main_nav_screen.dart';
 import '../../features/profile/screens/change_password_screen.dart';
 import '../../features/profile/screens/edit_profile_screen.dart';
@@ -26,14 +28,16 @@ class AppRoutes {
     if (settings.name == MainNavScreen.name) {
       route = const MainNavScreen();
     }
-/*     else if (settings.name == SplashScreen.name) {
+     else if (settings.name == SplashScreen.name) {
       route = const SplashScreen();
-    }*/
+    }
     else if (settings.name == HomeScreen.name) {
       route =  HomeScreen();
     }
     else if (settings.name == SignInScreen.name) {
       route =  SignInScreen();
+    }  else if (settings.name == SignInPhoneScreen.name) {
+      route = SignInPhoneScreen();
     }
     else if (settings.name == SosScreen.name) {
       route =  SosScreen();

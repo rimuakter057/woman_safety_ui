@@ -1,0 +1,142 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:woman_safety_ui/features/auth/screens/sign_up_screen.dart';
+import 'package:woman_safety_ui/features/auth/screens/widget/field_title_text.dart';
+import 'package:woman_safety_ui/features/auth/screens/widget/rich_text.dart';
+import 'package:woman_safety_ui/features/auth/screens/widget/sign_in_up_head_container.dart';
+import 'package:woman_safety_ui/features/auth/screens/widget/terms_condition.dart';
+import '../../../../../app/utils/color/app_colors.dart';
+import '../../../../../app/utils/sizes/size.dart';
+import '../../../../../app/utils/text/text_style.dart';
+
+import '../../common/widget/custom_button.dart';
+import '../../common/widget/custom_text_form_field.dart';
+import '../controllers/sign_in_controller.dart';
+import 'forget_password_screen.dart';
+
+
+class SignInScreen extends StatefulWidget {
+   const SignInScreen({super.key});
+  static const String name = '/sign-in ';
+
+  @override
+  State<SignInScreen> createState() => _SignInScreenState();
+}
+
+class _SignInScreenState extends State<SignInScreen> {
+  final SignInController controller = Get.find<SignInController>();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Column(
+        children: [
+          const SignHeaderContainer(),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: EdgeInsets.all(AppSizes.defaultPadding(context)), // responsive padding
+                child: Column(
+                  children: [
+
+                    ///email and password field
+                    _buildTextForm(context),
+
+                    ///forget password
+                    Row(children: [
+                      const SizedBox(),
+                      const Spacer(),
+                      ///forget password button
+                      TextButton(
+                        onPressed: () {
+                          Get.toNamed(ForgetPasswordScreen.name);
+                        },
+                        child: Text("forget password", style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: AppColors.primaryColor)),
+                      ),
+                    ],
+                    ),
+
+                    ///remember me
+                    const CheckBoxRow(
+                      text: "Remember me",
+                    ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.width * 0.08,),
+
+                  ///sign in button
+                    CustomButton(text: 'Sign In',
+                      onPressed: () {
+                      controller.submitSignIn();
+
+                    },),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.width * 0.05,),
+                    ///switch to sign up
+                    RichTextWidget(normalText: 'Don\'t have an account?', actionText: '  Registration', onTap: () {
+                      Get.offAllNamed(SignUpScreen.name);
+                    }, ),
+
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+   ///email and password field
+  Form _buildTextForm(BuildContext context) {
+    return Form(
+      key: controller.signInFormKey,
+                    autovalidateMode:AutovalidateMode.onUserInteraction,  // only show error after interaction
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const FieldTitle(text: 'Email',),
+                        CustomTextFormField(controller:controller.emailController,
+                            hintText: 'email334@gmail.com',
+                          keyboardType: TextInputType.emailAddress,
+                          validator: controller.validateEmail,
+                          onChanged: (value) {
+                            controller.isFormFieldValid.value = true;  // enable validation for user interaction
+                          },
+                        ),
+                        SizedBox(height: MediaQuery.of(context).size.width * 0.04), // responsive spacing
+                        const FieldTitle(text: 'Password',),
+
+                            TextFormField(
+                          style: AppTextStyles.inputTextStyle(context),
+                          controller: controller.passwordController,
+                          obscureText: controller.isObscure.value,
+                          decoration: InputDecoration(
+                            hintText: 'Password',
+                            suffixIcon: IconButton(
+                              icon: Icon(
+                                controller.isObscure.value
+                                    ? Icons.visibility
+                                    : Icons.visibility_off,
+                                size: MediaQuery.of(context).size.width * 0.06, // responsive icon size
+                              ),
+                              onPressed: controller.toggleObscure,
+                            ),
+                          ),
+                       validator: controller.validatePassword,
+                          onChanged: (value) {
+                            controller.isFormFieldValid.value = true;  // enable validation for user interaction
+                          },
+                        )
+
+                     // responsive spacing
+
+                     //button
+
+
+                      ],
+                    ),
+                  );
+  }
+}
+
+
