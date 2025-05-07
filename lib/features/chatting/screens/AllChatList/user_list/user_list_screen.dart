@@ -1,12 +1,11 @@
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:woman_safety_ui/features/chatting/data/models/logged_user_list_model.dart';
 import 'package:woman_safety_ui/features/common/widget/custom_divider.dart';
-
 import '../../../../auth/screens/sign_in_screen.dart';
+import '../MessagePageDetails/message_details.dart';
 
 class UserListScreen extends StatefulWidget {
   const UserListScreen({super.key});
@@ -71,7 +70,11 @@ appBar: AppBar(),
                            title: Text(users[index].name),
                            subtitle: Text(users[index].email!),
                            onTap: (){
-                             debugPrint("success============");
+                             Get.toNamed(MessageDetails.name,
+                                 arguments: {
+                                   'receiverId': users[index].uid,
+                                   'receiverName': users[index].name,
+                                 });
                            },
                          ),
                        ),

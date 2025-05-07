@@ -7,19 +7,20 @@ import '../../data/list/all_chat_list.dart';
 import 'MessagePageDetails/message_details.dart';
 
 
-class ChatListPage extends StatelessWidget {
+class ChatListPage extends StatefulWidget {
 
   ChatListPage({
     super.key,
   });
 
+  @override
+  State<ChatListPage> createState() => _ChatListPageState();
+}
 
-
-
+class _ChatListPageState extends State<ChatListPage> {
   var hour =DateTime.now().hour.toString();
+
   var minute = DateTime.now().minute.toString();
-
-
 
   @override
   Widget build(BuildContext context) {

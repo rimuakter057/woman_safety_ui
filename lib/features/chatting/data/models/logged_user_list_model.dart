@@ -9,7 +9,7 @@ factory LoggedUserListModel.fromJson(Map<String,dynamic>jsonData){
   return LoggedUserListModel(
       name: jsonData['name']??"no name",
       email: jsonData['email']??"no email",
-      uid: jsonData['uid'],
+      uid: jsonData['uid']??"no uid",
   );
 }
 Map <String,dynamic>toJson(){

@@ -2,10 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:woman_safety_ui/core/utils/toast_message.dart';
-import 'package:woman_safety_ui/features/chatting/screens/AllChatList/chat_list_page.dart';
-
 import '../../../../../app/utils/sizes/size.dart';
-
 import '../../auth/screens/sign_in_screen.dart';
 import '../../chatting/screens/AllChatList/user_list/user_list_screen.dart';
 import '../../common/widget/custom_appbar.dart';

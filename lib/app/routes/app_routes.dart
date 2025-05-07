@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:woman_safety_ui/features/chatting/screens/AllChatList/MessagePageDetails/message_details.dart';
 import 'package:woman_safety_ui/features/chatting/screens/AllChatList/user_list/user_list_screen.dart';
 import 'package:woman_safety_ui/features/chatting/screens/HomePage/home_page.dart';
 
@@ -79,6 +80,12 @@ class AppRoutes {
       route = const HomePage();
     } else if (settings.name == UserListScreen.name) {
       route = const UserListScreen();
+    }
+    else if (settings.name == MessageDetails.name) {
+      final arguments = settings.arguments as Map<String, dynamic>;
+      route =  MessageDetails(
+          receiverId: arguments['receiverId'],
+          receiverName: arguments['receiverName']);
     }
 
 
