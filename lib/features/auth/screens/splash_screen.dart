@@ -19,12 +19,14 @@ class _SplashScreenState extends State<SplashScreen> {
 
   SplashServices splashServices = SplashServices();
 
+/*
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     splashServices.isSignIn();
   }
+*/
 
   @override
   Widget build(BuildContext context) {

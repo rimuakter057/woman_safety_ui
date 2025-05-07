@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:woman_safety_ui/core/utils/toast_message.dart';
@@ -90,8 +91,24 @@ class _SignInScreenState extends State<SignInScreen> {
                         if(formKey.currentState!.validate()){
                           _auth.signInWithEmailAndPassword(email: emailController.text.toString(),
                               password: passwordController.text.toString()).then((value){
-                            Get.snackbar('Success', 'sign in successfully!');
-                            Get.offAllNamed(MainNavScreen.name);
+                      String uid=value.user!.uid;
+                      DatabaseReference ref=FirebaseDatabase.instance.ref("users/$uid");
+                        ref.once().then((DatabaseEvent event){
+                        if(event.snapshot.exists){
+                          String name=event.snapshot.child('name').value.toString();
+                          String email=event.snapshot.child('email').value.toString();
+
+                          print('User Name: $name');
+                          print('User Email: $email');
+                          Get.snackbar('Success', 'Sign in successful!');
+                          Get.offAllNamed(MainNavScreen.name);
+                        }
+                        }).catchError((e){
+                          Utils().toastMessage(e.toString());
+                        }).onError((error, stackTrace){
+                          Utils().toastMessage(error.toString());
+                        });
+
                           }).onError((error, stackTrace){
                             Utils().toastMessage(error.toString());
                           });

@@ -20,7 +20,7 @@ class WomanSafety extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme(context),
-      initialRoute: SplashScreen.name,
+      initialRoute: SignUpScreen.name,
       onGenerateRoute: AppRoutes.onGenerateRoute,
       initialBinding: ControllerBinder(),
     );

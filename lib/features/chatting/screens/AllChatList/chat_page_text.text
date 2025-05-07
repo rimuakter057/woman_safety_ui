@@ -1,9 +1,6 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:woman_safety_ui/core/utils/toast_message.dart';
 
 import '../../../../app/utils/color/app_colors.dart';
-import '../../data/list/all_chat_list.dart';
 import 'MessagePageDetails/message_details.dart';
 
 
@@ -14,7 +11,63 @@ class ChatListPage extends StatelessWidget {
   });
 
 
+  List<Map> allChatList = [
+    {
+      "title": "Rimu",
+     "subtitle": "what are you doing",
+      "count" : 0,
+      "image":"assets/images/man.jpg",
+    },
+    {
+      "title":"Rozina",
+      "subtitle":"How are you",
+    "count" : 4,
+      "image":"assets/images/man.jpg",
+    },
+   {
+"title":"ariful",
+"subtitle":"I need some money" ,
+     "count" : 0,
+     "image":"assets/images/man.jpg",
+        },
+{
+"title":"Rusha",
+"subtitle":"I love you" ,
+  "count" : 3,
+  "image":"assets/images/man.jpg",
+},
+{
+"title":"Riya",
+"subtitle":"i am a student",
+  "count" : 0,
+  "image":"assets/images/man.jpg",
+},
+{
+"title":"Aroshi",
+"subtitle":"here i am" ,
+  "count" : 5,
+  "image":"assets/images/man.jpg",
+},
+{
+"title": "Lakib",
+"subtitle":"you are my friend",
+  "count" : 0,
+  "image":"assets/images/man.jpg",
+},
+{
+"title":"Riyad",
+"subtitle":"you are my cousin",
+  "count" : 0,
+  "image":"assets/images/man.jpg",
+},
+{
+"title": "Ripon",
+"subtitle":"here i am",
+  "count" : 7,
+  "image":"assets/images/man.jpg",
+},
 
+  ];
 
   var hour =DateTime.now().hour.toString();
   var minute = DateTime.now().minute.toString();
@@ -29,16 +82,9 @@ class ChatListPage extends StatelessWidget {
       itemBuilder: (context, index, ) {
         return ListTile(
           onTap: (){
-            final user= FirebaseAuth.instance.currentUser;
-              if(user!=null){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>MessageDetails(
-                  receiverId:user.uid,
-                  receiverName: user.displayName.toString(),
-                )));
-
-              }else{
-                Utils().toastMessage("user not signIn");
-              }
+          Navigator.push(context, MaterialPageRoute(builder: (context)=>MessageDetails(
+              name: allChatList[index]['title'],
+              profile: allChatList[index]['image'],)));
           },
           leading: CircleAvatar(
             backgroundColor: Colors.white,

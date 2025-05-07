@@ -1,3 +1,4 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:woman_safety_ui/core/utils/toast_message.dart';
@@ -69,20 +70,34 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ///sign Up button
                     CustomButton(
                       text: 'Sign Up',
-                      onPressed: () {
-                    if (signUpFormKey.currentState!.validate()) {
-                      _auth.createUserWithEmailAndPassword(
-                          email: emailController.text.toString(),
-                          password: passwordController.text.toString()).then((value){
-                        Get.snackbar('Success', 'Registration successfully!');
-                        Get.offAllNamed(SignInScreen.name);
-                      }).onError((error, stackTrace){
-                        Utils().toastMessage(error.toString());
-                      });
+                      onPressed: ()async {
+                        if(signUpFormKey.currentState!.validate()){
+                          try{
+                            UserCredential userCredential = await _auth.createUserWithEmailAndPassword(
+                                email: emailController.text,
+                                password: passwordController.text);
+                            debugPrint("user credential====${userCredential.user?.uid}");
 
-                    }
-                    }
+                            String uid= userCredential.user!.uid;
+                            debugPrint("user credential===success========${userCredential.user?.uid}");
+                         DatabaseReference ref= FirebaseDatabase.instance.ref("users/$uid");
+                         await ref.set({
+                           'name':nameController.text,
+                           'email':emailController.text
+                         });
+                            debugPrint("✅ User data written to database.");
+                            Get.snackbar('Success', 'Registration successfully!');
+                            Get.offAllNamed(SignInScreen.name);
+
+                          }catch(e){
+                            debugPrint("catch error==============${e.toString()}");
+                          }
+                        }
+
+                      },
+
                     ),
+
                     space,
                     const DividerOr(),
                     space,
