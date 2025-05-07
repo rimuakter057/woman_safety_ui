@@ -6,6 +6,7 @@ import 'package:woman_safety_ui/features/auth/screens/splash_screen.dart';
 import 'package:woman_safety_ui/features/chatting/screens/HomePage/home_page.dart';
 import '../features/auth/screens/sign_in_screen.dart';
 import '../features/auth/screens/sign_up_screen.dart';
+import '../features/chatting/screens/AllChatList/user_list/user_list_screen.dart';
 import 'controller_binder.dart';
 
 
@@ -20,7 +21,7 @@ class WomanSafety extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme(context),
-      initialRoute: SignUpScreen.name,
+      initialRoute: SignInScreen.name,
       onGenerateRoute: AppRoutes.onGenerateRoute,
       initialBinding: ControllerBinder(),
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:woman_safety_ui/features/chatting/screens/AllChatList/user_list/user_list_screen.dart';
 import 'package:woman_safety_ui/features/chatting/screens/HomePage/home_page.dart';
 
 import '../../features/HomeScreen/home_screen.dart';
@@ -76,6 +77,8 @@ class AppRoutes {
       route = const ProfileScreen();
     } else if (settings.name == HomePage.name) {
       route = const HomePage();
+    } else if (settings.name == UserListScreen.name) {
+      route = const UserListScreen();
     }
 
 
