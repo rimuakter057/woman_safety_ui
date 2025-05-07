@@ -29,14 +29,9 @@ class SignInScreen extends StatefulWidget {
 }
 
 class _SignInScreenState extends State<SignInScreen> {
-  FirebaseAuth _auth=FirebaseAuth.instance;
+  FirebaseAuth _auth = FirebaseAuth.instance;
 
-  void  onTapSignIn()async{
-
-
-
-
-  }
+  void onTapSignIn() async {}
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
@@ -86,36 +81,39 @@ class _SignInScreenState extends State<SignInScreen> {
 
                     ///sign in button
                     CustomButton(
-                      text: 'Sign In',
-                      onPressed: (){
-                        if(formKey.currentState!.validate()){
-                          _auth.signInWithEmailAndPassword(email: emailController.text.toString(),
-                              password: passwordController.text.toString()).then((value){
-                      String uid=value.user!.uid;
-                      DatabaseReference ref=FirebaseDatabase.instance.ref("users/$uid");
-                        ref.once().then((DatabaseEvent event){
-                        if(event.snapshot.exists){
-                          String name=event.snapshot.child('name').value.toString();
-                          String email=event.snapshot.child('email').value.toString();
-
-                          print('User Name: $name');
-                          print('User Email: $email');
-                          Get.snackbar('Success', 'Sign in successful!');
-                          Get.offAllNamed(MainNavScreen.name);
-                        }
-                        }).catchError((e){
-                          Utils().toastMessage(e.toString());
-                        }).onError((error, stackTrace){
-                          Utils().toastMessage(error.toString());
-                        });
-
-                          }).onError((error, stackTrace){
-                            Utils().toastMessage(error.toString());
-                          });
-
-                        }
-                      }
-                    ),
+                        text: 'Sign In',
+                        onPressed: () async {
+                          if (formKey.currentState!.validate()) {
+                            try {
+                              UserCredential userCredential =
+                                  await _auth.signInWithEmailAndPassword(
+                                      email: emailController.text,
+                                      password: passwordController.text);
+                              String uid = userCredential.user!.uid;
+                              DatabaseReference ref =
+                                  FirebaseDatabase.instance.ref('users/$uid');
+                              DatabaseEvent event = await ref.once();
+                              if (event.snapshot.exists) {
+                                String name = event.snapshot
+                                    .child('name')
+                                    .value
+                                    .toString();
+                                String email = event.snapshot
+                                    .child('email')
+                                    .value
+                                    .toString();
+                                debugPrint("User Name: $name");
+                                debugPrint("User Email: $email");
+                                Get.offAllNamed(MainNavScreen.name);
+                                Get.snackbar('Success', 'Sign in successful!');
+                              } else {
+                                Utils().toastMessage("no data found============");
+                              }
+                            } catch (e) {
+                              Utils().toastMessage("error==============${e.toString()}");
+                            }
+                          }
+                        }),
                     SizedBox(
                       height: MediaQuery.of(context).size.width * 0.05,
                     ),
@@ -128,14 +126,13 @@ class _SignInScreenState extends State<SignInScreen> {
                         Get.offAllNamed(SignUpScreen.name);
                       },
                     ),
+
                     ///sign in button
                     CustomButton(
                         text: 'Sign In Phone Number',
-                        onPressed: (){
-
+                        onPressed: () {
                           Get.toNamed(SignInPhoneScreen.name);
-                        }
-                    ),
+                        }),
                   ],
                 ),
               ),
@@ -209,5 +206,4 @@ class _SignInScreenState extends State<SignInScreen> {
     passwordController.dispose();
     super.dispose();
   }
-
- }
+}
