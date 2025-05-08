@@ -11,5 +11,6 @@ class AssetImages{
   static const String tasbih = '${basePath}tasbih.png';
   static const String jakat = '${basePath}jakat.png';
   static const String duaPlay = '${basePath}dua_play.png';
+  static const String slideImage = 'assets/images/slide/slide_three.jpg';
 }
 

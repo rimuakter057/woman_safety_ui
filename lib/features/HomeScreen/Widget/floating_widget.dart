@@ -22,7 +22,7 @@ class FloatingWidget extends StatelessWidget {
       decoration: const BoxDecoration(
         borderRadius: BorderRadius.only(
             topLeft: Radius.circular(10), bottomRight: Radius.circular(10)),
-        color: AppColors.primaryColor,
+        color: AppColors.black,
       ),
       child: Padding(
         padding: const EdgeInsets.all(8.0),

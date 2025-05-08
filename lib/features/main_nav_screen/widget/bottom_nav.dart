@@ -43,6 +43,10 @@ class CustomBottomNavBar extends StatelessWidget {
           label: "sos",
         ),
         BottomNavigationBarItem(
+          icon: Icon(Icons.verified_user),
+          label: "user",
+        ),
+        BottomNavigationBarItem(
           icon: Icon(Icons.person),
           label: "profile",
         ),

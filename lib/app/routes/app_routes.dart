@@ -14,6 +14,8 @@ import '../../features/auth/screens/sign_in_screen.dart';
 import '../../features/auth/screens/sign_up_screen.dart';
 import '../../features/auth/screens/splash_screen.dart';
 import '../../features/main_nav_screen/main_nav_screen.dart';
+
+import '../../features/number/emergency_number_screen.dart';
 import '../../features/profile/screens/change_password_screen.dart';
 import '../../features/profile/screens/edit_profile_screen.dart';
 import '../../features/profile/screens/profile_screen.dart';
@@ -86,6 +88,9 @@ class AppRoutes {
       route =  MessageDetails(
           receiverId: arguments['receiverId'],
           receiverName: arguments['receiverName']);
+    }
+    else if (settings.name == EmergencyNumberScreen.name) {
+      route = const EmergencyNumberScreen();
     }
 
 

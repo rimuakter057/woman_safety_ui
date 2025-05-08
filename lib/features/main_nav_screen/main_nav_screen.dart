@@ -5,6 +5,7 @@ import 'package:woman_safety_ui/features/main_nav_screen/widget/bottom_nav.dart'
 
 
 import '../HomeScreen/home_screen.dart';
+import '../chatting/screens/AllChatList/user_list/user_list_screen.dart';
 import '../profile/screens/profile_screen.dart';
 import '../sos_screen/sos_screen.dart';
 
@@ -25,6 +26,7 @@ class _MainNavScreenState extends State<MainNavScreen> {
     HomeScreen(),
     Scaffold(),
     SosScreen(),
+    UserListScreen(),
     ProfileScreen(),
   ];
 

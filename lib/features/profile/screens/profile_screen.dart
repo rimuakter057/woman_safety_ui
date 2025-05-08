@@ -28,13 +28,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: CustomAppBar(title: "Profile Screen",
+        appBar: const CustomAppBar(title: "Profile Screen",
           leadingWidget: CustomIcon(),
         ),
       body: SingleChildScrollView(
         child: Column(children: [
           ///show profile
-          ProfileWidget( name: "Your Name", subtitle: "App Developer"),
+          const ProfileWidget( name: "Your Name", subtitle: "App Developer"),
            /// profile option
           _buildProfileOption(context)
         ],),
@@ -49,14 +49,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.04), // responsive padding
       child: Column(
         children: [
-          ProfileOptionWidget(
-            icon: Icons.lock_outline,
-            title: "See User List",
-            onTap: () {
-              Get.toNamed(UserListScreen.name);
-            },
-          ),
-          ProfileOptionWidget(
+               ProfileOptionWidget(
             icon: Icons.lock_outline,
             title: "Personal Information",
             onTap: () {

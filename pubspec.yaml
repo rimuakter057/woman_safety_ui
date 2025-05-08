@@ -45,6 +45,7 @@ dependencies:
   firebase_auth: ^5.5.3
   fluttertoast: ^8.2.12
   firebase_database: ^11.3.5
+  url_launcher: ^6.3.1
 
 
 
@@ -77,6 +78,7 @@ flutter:
     - assets/images/slide/slide_three.jpg
     - assets/images/logo/
     - assets/images/logo/logo.png
+    - assets/number/emergency_number_list.Json
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

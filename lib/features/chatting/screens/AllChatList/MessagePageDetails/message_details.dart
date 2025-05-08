@@ -72,6 +72,8 @@ class _MessagePageState extends State<MessageDetails> {
                       itemBuilder: (context, index) {
                         final currentUser = FirebaseAuth.instance.currentUser!;
                         return Column(
+
+
                           crossAxisAlignment: messages[index].senderId == currentUser.uid
                               ? CrossAxisAlignment.end
                               : CrossAxisAlignment.start,
