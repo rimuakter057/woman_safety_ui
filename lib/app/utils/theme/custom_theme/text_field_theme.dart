@@ -18,7 +18,7 @@ class AppTextFormFieldTheme {
       // Same Style for Label and Hint Text
       labelStyle: Theme.of(context).textTheme.titleSmall,
       hintStyle: Theme.of(context).textTheme.titleSmall!.copyWith(color:AppColors.grey ),
-      errorStyle: TextStyle(
+      errorStyle: const TextStyle(
         fontWeight: FontWeight.normal,
         color: Colors.red, // Error color
       ),
@@ -26,23 +26,23 @@ class AppTextFormFieldTheme {
       // Set default border styles here
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(14),
-        borderSide: BorderSide(width: 1, color:Color(0xFFDEDEDE)),
+        borderSide: const BorderSide(width: 1, color:Color(0xFFDEDEDE)),
       ),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(14),
-        borderSide: BorderSide(width: 1, color:Color(0xFFDEDEDE)),
+        borderSide: const BorderSide(width: 1, color:Color(0xFFDEDEDE)),
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(14),
-        borderSide: BorderSide(width: 1, color: Colors.black12),
+        borderSide: const BorderSide(width: 1, color: Colors.black12),
       ),
       errorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(14),
-        borderSide: BorderSide(width: 1, color: Colors.red),
+        borderSide: const BorderSide(width: 1, color: Colors.red),
       ),
       focusedErrorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(14),
-        borderSide: BorderSide(width: 2, color: AppColors.pink),
+        borderSide: const BorderSide(width: 2, color: AppColors.pink),
       ),
     );
   }
@@ -67,10 +67,10 @@ class AppTextFormFieldTheme {
       hintStyle: TextStyle(
         fontSize: fontSize, // Same font size for hint text
         fontWeight: FontWeight.normal, // Regular weight for hint text
-        color: Color(0xFF767676), // Grey color for hint text
+        color: const Color(0xFF767676), // Grey color for hint text
         fontFamily: 'Poppins', // Poppins font
       ),
-      errorStyle: TextStyle(
+      errorStyle: const TextStyle(
         fontWeight: FontWeight.normal,
         color: Colors.red, // Error color
       ),
@@ -78,23 +78,23 @@ class AppTextFormFieldTheme {
       // Set default border styles here for dark theme
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(14),
-        borderSide: BorderSide(width: 1, color: AppColors.grey),
+        borderSide: const BorderSide(width: 1, color: AppColors.grey),
       ),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(14),
-        borderSide: BorderSide(width: 1, color: AppColors.grey),
+        borderSide: const BorderSide(width: 1, color: AppColors.grey),
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(14),
-        borderSide: BorderSide(width: 1, color: Colors.white),
+        borderSide: const BorderSide(width: 1, color: Colors.white),
       ),
       errorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(14),
-        borderSide: BorderSide(width: 1, color: Colors.red),
+        borderSide: const BorderSide(width: 1, color: Colors.red),
       ),
       focusedErrorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(14),
-        borderSide: BorderSide(width: 2, color: Colors.orange),
+        borderSide: const BorderSide(width: 2, color: Colors.orange),
       ),
     );
   }

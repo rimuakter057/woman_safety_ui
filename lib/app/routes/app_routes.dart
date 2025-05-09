@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:woman_safety_ui/features/chatting/screens/AllChatList/MessagePageDetails/message_details.dart';
 import 'package:woman_safety_ui/features/chatting/screens/AllChatList/user_list/user_list_screen.dart';
 import 'package:woman_safety_ui/features/chatting/screens/HomePage/home_page.dart';
+import 'package:woman_safety_ui/features/sos_screen/ui/screens/trusted_contact_screen.dart';
 
 import '../../features/HomeScreen/home_screen.dart';
 import '../../features/auth/screens/confirmed_password_screen.dart';
@@ -91,6 +92,8 @@ class AppRoutes {
     }
     else if (settings.name == EmergencyNumberScreen.name) {
       route = const EmergencyNumberScreen();
+    }  else if (settings.name == TrustedContactScreen.name) {
+      route = const TrustedContactScreen();
     }
 
 
