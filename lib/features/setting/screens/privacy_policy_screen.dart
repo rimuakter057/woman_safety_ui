@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:woman_safety_ui/app/utils/color/app_colors.dart';
+import 'package:woman_safety_ui/features/common/widget/custom_icon.dart';
 
 import '../../common/widget/custom_appbar.dart';
 import '../data/privacy_text.dart';
@@ -16,8 +17,7 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-appBar: CustomAppBar(title: "privecy policy",),
-      drawer: Drawer(),
+appBar: CustomAppBar(title: "privecy policy",leadingWidget: CustomIcon(),),
       body: ListView(
         padding: EdgeInsets.all(16),
         children: [

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:woman_safety_ui/app/utils/color/app_colors.dart';
 import 'package:woman_safety_ui/core/utils/toast_message.dart';
 import 'package:woman_safety_ui/features/common/widget/custom_appbar.dart';
+import 'package:woman_safety_ui/features/common/widget/custom_icon.dart';
 import 'package:woman_safety_ui/features/sos_screen/data/models/trustedNumberModel.dart';
 
 import '../../data/save_contact_sheared.dart';
@@ -59,7 +60,9 @@ class _TrustedContactScreenState extends State<TrustedContactScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(title: "Trusted Contact",),
+      appBar: const CustomAppBar(title: "Trusted Contact",
+      leadingWidget: CustomIcon(),
+      ),
       body:Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(children: [

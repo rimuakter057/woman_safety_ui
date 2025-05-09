@@ -4,6 +4,7 @@ import 'package:woman_safety_ui/app/utils/color/app_colors.dart';
 
 
 import '../../common/widget/custom_appbar.dart';
+import '../../common/widget/custom_icon.dart';
 import '../data/help_text.dart';
 
 class HelpCenterScreen extends StatefulWidget {
@@ -17,7 +18,7 @@ class _HelpCenterScreenState extends State<HelpCenterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: CustomAppBar(title: "privecy policy",),
+      appBar: CustomAppBar(title: "Help Center",leadingWidget: CustomIcon(),),
       body: ListView(
         padding: EdgeInsets.all(16),
         children: [

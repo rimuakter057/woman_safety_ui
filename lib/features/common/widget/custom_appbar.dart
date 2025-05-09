@@ -17,8 +17,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool isMainNavScreen = Get.currentRoute == MainNavScreen.name;
-    return AppBar(
+   return AppBar(
       backgroundColor: AppColors.primaryColor, // Primary Color
       leading:leadingWidget ,
       centerTitle: true,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:woman_safety_ui/features/HomeScreen/faq_screen.dart';
 import 'package:woman_safety_ui/features/chatting/screens/AllChatList/MessagePageDetails/message_details.dart';
-import 'package:woman_safety_ui/features/chatting/screens/AllChatList/user_list/user_list_screen.dart';
 import 'package:woman_safety_ui/features/chatting/screens/HomePage/home_page.dart';
 import 'package:woman_safety_ui/features/sos_screen/ui/screens/trusted_contact_screen.dart';
 
@@ -23,6 +23,7 @@ import '../../features/profile/screens/profile_screen.dart';
 import '../../features/setting/screens/help_center_screen.dart';
 import '../../features/setting/screens/privacy_policy_screen.dart';
 import '../../features/sos_screen/sos_screen.dart';
+import '../../features/user_list/user_list_screen.dart';
 
 class AppRoutes {
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
@@ -94,6 +95,9 @@ class AppRoutes {
       route = const EmergencyNumberScreen();
     }  else if (settings.name == TrustedContactScreen.name) {
       route = const TrustedContactScreen();
+    }
+    else if (settings.name == FaqScreen.name) {
+      route = const FaqScreen();
     }
 
 

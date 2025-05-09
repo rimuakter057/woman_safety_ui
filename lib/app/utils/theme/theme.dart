@@ -10,7 +10,6 @@ class AppTheme {
     useMaterial3: true,
     fontFamily: 'Poppins',
     brightness: Brightness.light,
-
     scaffoldBackgroundColor: AppColors.background,
     textTheme: AppTextTheme.lightTextTheme(context),
 

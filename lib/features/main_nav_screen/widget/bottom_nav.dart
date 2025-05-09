@@ -1,5 +1,3 @@
-// file: custom_bottom_nav_bar.dart
-
 import 'package:flutter/material.dart';
 
 import '../../../../../app/utils/color/app_colors.dart';
@@ -33,10 +31,6 @@ class CustomBottomNavBar extends StatelessWidget {
         BottomNavigationBarItem(
           icon: Icon(Icons.home),
           label: "home",
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.list_alt),
-          label: "alert",
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.alarm),

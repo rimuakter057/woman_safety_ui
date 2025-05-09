@@ -3,9 +3,13 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:woman_safety_ui/features/chatting/data/models/logged_user_list_model.dart';
+import 'package:woman_safety_ui/features/common/widget/custom_appbar.dart';
 import 'package:woman_safety_ui/features/common/widget/custom_divider.dart';
-import '../../../../auth/screens/sign_in_screen.dart';
-import '../MessagePageDetails/message_details.dart';
+
+import '../auth/screens/sign_in_screen.dart';
+import '../chatting/screens/AllChatList/MessagePageDetails/message_details.dart';
+import '../common/widget/custom_icon.dart';
+
 
 class UserListScreen extends StatefulWidget {
   const UserListScreen({super.key});
@@ -25,6 +29,7 @@ class _UserListScreenState extends State<UserListScreen> {
         Get.toNamed(SignInScreen.name);
       });
       return const Scaffold(
+        appBar: CustomAppBar(title: "User List",leadingWidget: CustomIcon(),),
         body: Center(
           child: Text("Please log in to see user list."),
         ),
@@ -33,7 +38,7 @@ class _UserListScreenState extends State<UserListScreen> {
 
     //if user is not null, show user list
     return Scaffold(
-appBar: AppBar(),
+appBar: CustomAppBar(title: "user List Screen",leadingWidget: CustomIcon(),),
       body: StreamBuilder(
           stream: FirebaseDatabase.instance.ref('users').onValue,
           builder: (context,snapshot){
@@ -62,7 +67,7 @@ appBar: AppBar(),
                itemCount: users.length,
                itemBuilder: (context,index){
                  return Padding(
-                   padding: const EdgeInsets.all(16.0),
+                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                    child: Column(
                      children: [
                        Card(

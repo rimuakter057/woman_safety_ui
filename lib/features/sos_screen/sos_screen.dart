@@ -121,14 +121,14 @@ class _SosScreenState extends State<SosScreen> {
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             CustomSmallButton(
-                              label: "Fake Call",
+                              label: "Call",
                               width: width * 0.35,
                               onPressed: () {
                                 sendFakeCalls();
                               },
                             ),
                             CustomSmallButton(
-                              label: "Fake Sms",
+                              label: "Send Sms",
                               width: width * 0.35,
                               onPressed: () {
                                 sendFakeMessages();

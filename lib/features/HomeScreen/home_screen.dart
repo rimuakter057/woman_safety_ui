@@ -14,6 +14,7 @@ import 'Widget/floating_widget.dart';
 import 'Widget/header_image.dart';
 import 'Widget/note_text.dart';
 import 'Widget/service_card.dart';
+import 'data/service_list.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -30,40 +31,37 @@ static const String name= '/home-screen';
       body: Column(
         children: [
           const HeaderImage(),
-          const NoteText(),
+          const Padding(
+            padding: EdgeInsets.all(8.0),
+            child: NoteText(),
+          ),
           SizedBox(height: size.height * .02),
-          Text(
-            "আমাদের সেবা সমূহ",
-            style: MyTextStyle.buttonTextStyle.copyWith(color: AppColors.white),
+          const Text(
+            "Our Services",
+            style: TextStyle(color: AppColors.black, fontSize: 25, fontWeight: FontWeight.bold),
           ),
           SizedBox(height: size.height * .015),
           // Service cards section
       Expanded(
         child: ListView.builder(
           shrinkWrap: true,
-          itemCount: 5,
+          itemCount: serviceList.length,
           itemBuilder: (context, index) {
             return Card(
               color: AppColors.primaryColor,
               margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
               child: InkWell(
-                onTap: () {
-                  Get.toNamed(EmergencyNumberScreen.name);
-                },
+                onTap: serviceList[index]['onTap'],
                 borderRadius: BorderRadius.circular(12),
                 child: SizedBox(
                   height: 80, // Increased height
                   child: Center(
                     child: ListTile(
-                      leading: Image.asset(
-                        AssetImages.alarm,
-                        color: AppColors.white,
-                        width: 28,
-                        height: 28,
-                      ),
-                      title: const Text(
-                        "জরুরী কল",
+                      leading:
+                        serviceList[index]['icon'],
+                      title:  Text(
+                        serviceList[index]['title'],
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                           fontSize: 18,

@@ -34,7 +34,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
           child: Column(
             children: [
            ///show profile
-              ProfileWidget( name: "Your Name", subtitle: "App Developer"),
+              ProfileWidget(),
             ///edit form
               Column(
                  children: [

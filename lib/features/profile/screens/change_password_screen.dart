@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:woman_safety_ui/features/auth/screens/sign_in_screen.dart';
 import 'package:woman_safety_ui/features/profile/screens/profile_screen.dart';
 
 import '../../../../../app/utils/sizes/size.dart';
@@ -38,7 +39,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
           child: Column(
             children: [
               ///show profile
-              ProfileWidget( name: "Your Name", subtitle: "App Developer"),
+              ProfileWidget(),
             /// text form field
             _buildForm(context),
         
@@ -47,7 +48,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
               /// custom button
               CustomButton(text: "submit", onPressed: (){
                 Get.snackbar('Success', 'save successfully');
-                      Get.offAllNamed(ProfileScreen.name);
+                      Get.offAllNamed(SignInScreen.name);
               }),
         
         

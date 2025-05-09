@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:woman_safety_ui/core/utils/toast_message.dart';
 import '../../../../../app/utils/sizes/size.dart';
 import '../../auth/screens/sign_in_screen.dart';
-import '../../chatting/screens/AllChatList/user_list/user_list_screen.dart';
 import '../../common/widget/custom_appbar.dart';
 import '../../common/widget/custom_button.dart';
 import '../../common/widget/custom_icon.dart';
@@ -34,7 +33,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       body: SingleChildScrollView(
         child: Column(children: [
           ///show profile
-          const ProfileWidget( name: "Your Name", subtitle: "App Developer"),
+          const ProfileWidget(),
            /// profile option
           _buildProfileOption(context)
         ],),

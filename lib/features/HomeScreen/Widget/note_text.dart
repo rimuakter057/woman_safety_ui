@@ -19,19 +19,22 @@ class NoteText extends StatelessWidget {
     return Row(
       children: [
         Container(
+
           height: AppSizes.height(context) * .037,
           width: AppSizes.width(context) * .15,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(5),
               color: AppColors.white),
-          child: Center(
-              child: Text(
-                "মনে রাখবেন",
-                style: MyTextStyle.buttonTextStyle.copyWith(
-                    fontSize:AppSizes.height(context) * .013,
-                    fontWeight: FontWeight.bold,
-                    color: AppColors.primaryColor),
-              )),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            child: Text(
+              "মনে রাখবেন",
+              style: MyTextStyle.buttonTextStyle.copyWith(
+                  fontSize:AppSizes.height(context) * .013,
+                  fontWeight: FontWeight.bold,
+                  color: AppColors.primaryColor),
+            ),
+          ),
         ),
         Expanded(
           child: SizedBox(

@@ -10,14 +10,12 @@ import '../../common/widget/profile_image.dart';
 
 class ProfileWidget extends StatelessWidget {
 
-  final String name;
-  final String subtitle;
+  final String ?name;
+  final String? subtitle;
 
   const ProfileWidget({
     super.key,
-
-    required this.name,
-    required this.subtitle,
+     this.subtitle, this.name,
   });
 
   @override
@@ -41,7 +39,7 @@ class ProfileWidget extends StatelessWidget {
 
           // Name
           Text(
-            name,
+            name??"RIMU",
             style: TextStyle(
               fontSize: fontSizeName,
               fontWeight: FontWeight.bold,
@@ -50,7 +48,7 @@ class ProfileWidget extends StatelessWidget {
 
           // Subtitle
           Text(
-            subtitle,
+            subtitle??"App Developer",
             style: TextStyle(
               fontSize: fontSizeSubtitle,
               color: Colors.grey[600],

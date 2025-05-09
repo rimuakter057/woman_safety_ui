@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:woman_safety_ui/app/utils/color/app_colors.dart';
 
+import '../../HomeScreen/data/drawer_list.dart';
 import 'custom_divider.dart';
 
 class DrawerWidget extends StatelessWidget {
@@ -21,83 +23,56 @@ class DrawerWidget extends StatelessWidget {
     this.onLogoutTap,
   });
 
+
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      child: Container(
-        color: AppColors.filled,
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            UserAccountsDrawerHeader(
-              accountName: Text(
-                userName,
-                style: const TextStyle(
-                  color: AppColors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 18,
-                ),
-              ),
-              accountEmail: Text(
-                userEmail,
-                style: const TextStyle(
-                  color: Colors.white70,
-                  fontSize: 14,
-                ),
-              ),
-              currentAccountPicture: CircleAvatar(
-                backgroundColor: Colors.white,
-                child: Icon(
-                  Icons.person,
-                  color: Colors.red.shade900,
-                  size: 40,
-                ),
-              ),
-              decoration: const BoxDecoration(
-                color: Colors.pink,
+      backgroundColor: Colors.white,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          UserAccountsDrawerHeader(
+            accountName: Text(
+              userName,
+              style: const TextStyle(
+                color: AppColors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
               ),
             ),
-            _buildDrawerItem(
-              icon: Icons.message,
-              text: "Anonymous Alert",
-              onTap: onMessagesTap ?? () => Navigator.pop(context),
+            accountEmail: Text(
+              userEmail,
+              style: const TextStyle(
+                color: Colors.white70,
+                fontSize: 14,
+              ),
             ),
-            _buildDrawerItem(
-              icon: Icons.person,
-              text: "Safe Walk Tracking	",
-              onTap: onProfileTap ?? () => Navigator.pop(context),
+            currentAccountPicture: CircleAvatar(
+              backgroundColor: Colors.white,
+              child: Icon(
+                Icons.person,
+                color: Colors.red.shade900,
+                size: 40,
+              ),
             ),
-            _buildDrawerItem(
-              icon: Icons.settings,
-              text: "Settings",
-              onTap: onSettingsTap ?? () => Navigator.pop(context),
+            decoration: const BoxDecoration(
+              color: Colors.pink,
             ),
-           const CustomDivider(),
-            _buildDrawerItem(
-              icon: Icons.logout,
-              text: "Logout",
-              onTap: onLogoutTap ?? () => Navigator.pop(context),
-            ),
-            _buildDrawerItem(
-              icon: Icons.logout,
-              text: "Self Defense Videos",
-              onTap: onLogoutTap ?? () => Navigator.pop(context),
-            ),
+          ),
 
-            _buildDrawerItem(
-              icon: Icons.logout,
-              text: "Logout",
-              onTap: onLogoutTap ?? () => Navigator.pop(context),
-            ),
-
-            _buildDrawerItem(
-              icon: Icons.logout,
-              text: "Safety News	",
-              onTap: onLogoutTap ?? () => Navigator.pop(context),
-            ),
-
-          ],
-        ),
+          Expanded(
+            child: ListView.builder(
+                itemCount:drawerList.length,
+                itemBuilder: (context, index){
+              return  _buildDrawerItem(
+                icon: drawerList[index]["icon"],
+                text: drawerList[index]["title"],
+                onTap: drawerList[index]["onTap"],
+              );
+            }),
+          ),
+             ],
       ),
     );
   }

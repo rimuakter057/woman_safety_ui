@@ -14,7 +14,7 @@ import '../../../../../app/utils/sizes/size.dart';
 import '../../../../../app/utils/text/text_style.dart';
 
 import '../../../core/validator/regx_validator.dart';
-import '../../chatting/screens/AllChatList/user_list/user_list_screen.dart';
+
 import '../../common/widget/custom_button.dart';
 import '../../common/widget/custom_text_form_field.dart';
 import '../../main_nav_screen/main_nav_screen.dart';
