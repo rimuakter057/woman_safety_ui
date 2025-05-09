@@ -38,43 +38,46 @@ static const String name= '/home-screen';
           ),
           SizedBox(height: size.height * .015),
           // Service cards section
-      ListView.builder(
-        shrinkWrap: true,
-        itemCount: 5,
-        itemBuilder: (context, index) {
-          return Card(
-            color: AppColors.primaryColor,
-            margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-            child: InkWell(
-              onTap: () {
-                Get.toNamed(EmergencyNumberScreen.name);
-              },
-              borderRadius: BorderRadius.circular(12),
-              child: SizedBox(
-                height: 80, // Increased height
-                child: Center(
-                  child: ListTile(
-                    leading: Image.asset(
-                      AssetImages.alarm,
-                      color: AppColors.white,
-                      width: 28,
-                      height: 28,
-                    ),
-                    title: const Text(
-                      "জরুরী কল",
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500,
+      Expanded(
+        child: ListView.builder(
+          shrinkWrap: true,
+          itemCount: 5,
+          itemBuilder: (context, index) {
+            return Card(
+              color: AppColors.primaryColor,
+              margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+              child: InkWell(
+                onTap: () {
+                  Get.toNamed(EmergencyNumberScreen.name);
+                },
+                borderRadius: BorderRadius.circular(12),
+                child: SizedBox(
+                  height: 80, // Increased height
+                  child: Center(
+                    child: ListTile(
+                      leading: Image.asset(
+                        AssetImages.alarm,
                         color: AppColors.white,
+                        width: 28,
+                        height: 28,
+                      ),
+                      title: const Text(
+                        "জরুরী কল",
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500,
+                          color: AppColors.white,
+                        ),
                       ),
                     ),
                   ),
                 ),
               ),
-            ),
-          );
-        },
+            );
+          },
+        ),
       ),
 
 

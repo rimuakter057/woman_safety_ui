@@ -1,15 +1,72 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:woman_safety_ui/app/utils/color/app_colors.dart';
 import 'package:woman_safety_ui/app/utils/sizes/size.dart';
 import 'package:woman_safety_ui/features/sos_screen/widget/custom_small_button.dart';
 import 'package:woman_safety_ui/features/sos_screen/widget/custom_sos_button.dart';
 import '../common/widget/custom_appbar.dart';
 import '../common/widget/custom_icon.dart';
+import 'data/models/trustedNumberModel.dart';
 
 
-class SosScreen extends StatelessWidget {
+class SosScreen extends StatefulWidget {
   const SosScreen({super.key});
   static const String name = '/sos-screen';
+
+  @override
+  State<SosScreen> createState() => _SosScreenState();
+}
+
+class _SosScreenState extends State<SosScreen> {
+  List<TrustedContactModel> trustedContacts = [];
+
+  @override
+  void initState() {
+    super.initState();
+    loadTrustedContacts();
+  }
+
+  Future<void> loadTrustedContacts() async {
+    final prefs = await SharedPreferences.getInstance();
+    final data = prefs.getStringList('trusted_contacts') ?? [];
+    trustedContacts = data
+        .map((item) =>
+        TrustedContactModel.fromJson(jsonDecode(item)))
+        .toList();
+    setState(() {});
+  }
+
+
+  Future<void> sendSOSCall() async {
+    const emergencyNumber = "999";
+    final Uri callUri = Uri.parse("tel:$emergencyNumber");
+    if (await canLaunchUrl(callUri)) {
+      await launchUrl(callUri);
+    }
+  }
+
+  Future<void> sendFakeCalls() async {
+    for (var contact in trustedContacts) {
+      final Uri callUri = Uri.parse("tel:${contact.number}");
+      if (await canLaunchUrl(callUri)) {
+        await launchUrl(callUri);
+      }
+    }
+  }
+
+  Future<void> sendFakeMessages() async {
+    for (var contact in trustedContacts) {
+      final Uri smsUri = Uri.parse("sms:${contact.number}?body=I need help urgently!");
+      if (await canLaunchUrl(smsUri)) {
+        await launchUrl(smsUri);
+      }
+    }
+  }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +76,7 @@ class SosScreen extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: AppColors.background,
-      appBar: CustomAppBar(title: "sos screen",
+      appBar: const CustomAppBar(title: "sos screen",
       leadingWidget: CustomIcon( ),
       ),
       body: SafeArea(
@@ -56,7 +113,7 @@ class SosScreen extends StatelessWidget {
                         CustomSOSButton(
                           buttonSize: width * 0.4, // Size passed to SOS Button
                           onPressed: () {
-                            // SOS action
+                            sendSOSCall();
                           },
                         ),
                         SizedBox(),
@@ -67,14 +124,14 @@ class SosScreen extends StatelessWidget {
                               label: "Fake Call",
                               width: width * 0.35,
                               onPressed: () {
-                                // Fake call action
+                                sendFakeCalls();
                               },
                             ),
                             CustomSmallButton(
-                              label: "Location",
+                              label: "Fake Sms",
                               width: width * 0.35,
                               onPressed: () {
-                                // Location action
+                                sendFakeMessages();
                               },
                             ),
                           ],

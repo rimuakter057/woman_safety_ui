@@ -8,6 +8,7 @@ import '../HomeScreen/home_screen.dart';
 import '../chatting/screens/AllChatList/user_list/user_list_screen.dart';
 import '../profile/screens/profile_screen.dart';
 import '../sos_screen/sos_screen.dart';
+import '../sos_screen/ui/screens/trusted_contact_screen.dart';
 
 
 
@@ -24,7 +25,7 @@ class _MainNavScreenState extends State<MainNavScreen> {
   final List<Widget> _screens = [
 
     HomeScreen(),
-    Scaffold(),
+    TrustedContactScreen(),
     SosScreen(),
     UserListScreen(),
     ProfileScreen(),
