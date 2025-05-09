@@ -10,4 +10,11 @@ class TrustedContactModel {
       number: json['number'],
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'name': name,
+      'number': number,
+    };
+  }
 }

@@ -4,6 +4,8 @@ import 'package:woman_safety_ui/core/utils/toast_message.dart';
 import 'package:woman_safety_ui/features/common/widget/custom_appbar.dart';
 import 'package:woman_safety_ui/features/sos_screen/data/models/trustedNumberModel.dart';
 
+import '../../data/save_contact_sheared.dart';
+
 
 class TrustedContactScreen extends StatefulWidget {
   const TrustedContactScreen({super.key});
@@ -17,9 +19,19 @@ class _TrustedContactScreenState extends State<TrustedContactScreen> {
   final TextEditingController nameController = TextEditingController();
   final TextEditingController numberController = TextEditingController();
   List <TrustedContactModel> trustedContacts = [];
-  int? editingIndex;
 
-  void _addOrUpdateContact(){
+  @override
+  void initState() {
+    super.initState();
+    loadContacts();
+  }
+
+  void loadContacts() async {
+    trustedContacts = await loadTrustedContacts();
+    setState(() {});
+  }
+
+  void _addContact()async{
     String name= nameController.text;
     String number = numberController.text.trim();
     if(name.isNotEmpty && number.isNotEmpty){
@@ -29,6 +41,7 @@ class _TrustedContactScreenState extends State<TrustedContactScreen> {
       setState(() {
 
       });
+      await saveTrustedContacts(trustedContacts);
     }else{
       Utils().toastMessage("Please enter name and number");
     }
@@ -36,10 +49,11 @@ class _TrustedContactScreenState extends State<TrustedContactScreen> {
   }
 
 
-  void removeContact(int index) {
+  void removeContact(int index) async{
     setState(() {
       trustedContacts.removeAt(index);
     });
+    await saveTrustedContacts(trustedContacts);
   }
 
   @override
@@ -64,6 +78,7 @@ class _TrustedContactScreenState extends State<TrustedContactScreen> {
               Expanded(
                 child: TextField(
                   controller: numberController,
+                  keyboardType: TextInputType.phone,
                   decoration: const InputDecoration(
                       hintText: 'number',
                       border: InputBorder.none
@@ -73,7 +88,7 @@ class _TrustedContactScreenState extends State<TrustedContactScreen> {
               const SizedBox(width: 8,),
               //add and remove button
               Card(child: IconButton(onPressed: (){
-                _addOrUpdateContact();
+                _addContact();
               }, icon: const Icon(Icons.add,size: 20,color: AppColors.primaryColor,))),
            ],
           ),
