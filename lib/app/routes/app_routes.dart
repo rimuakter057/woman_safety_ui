@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:woman_safety_ui/features/HomeScreen/faq_screen.dart';
 import 'package:woman_safety_ui/features/chatting/screens/AllChatList/MessagePageDetails/message_details.dart';
 import 'package:woman_safety_ui/features/chatting/screens/HomePage/home_page.dart';
+import 'package:woman_safety_ui/features/map/ui/screens/google_map_home_screen.dart';
 import 'package:woman_safety_ui/features/sos_screen/ui/screens/trusted_contact_screen.dart';
 
 import '../../features/HomeScreen/home_screen.dart';
@@ -99,7 +100,9 @@ class AppRoutes {
     else if (settings.name == FaqScreen.name) {
       route = const FaqScreen();
     }
-
+    else if (settings.name == GoogleMapHomeScreen.name) {
+      route = const GoogleMapHomeScreen();
+    }
 
 /*    else if (settings.name == PrayerListScreen.name) {
       route = const PrayerListScreen();
