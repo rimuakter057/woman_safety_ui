@@ -20,4 +20,32 @@ List<Map<String, dynamic>> serviceList = [
       Get.toNamed(TrustedContactScreen.name);
     },
   },
+  {
+    'icon': Icon(Icons.call,size: 30,color: AppColors.white,),
+    'title': 'Argent Call',
+    'onTap': (){
+      Get.toNamed(EmergencyNumberScreen.name);
+    },
+  },
+  {
+    'icon': const Icon(Icons.add,size: 30,color: AppColors.white,),
+    'title': 'Add Trusted Contact',
+    'onTap': (){
+      Get.toNamed(TrustedContactScreen.name);
+    },
+  },
+  {
+    'icon': Icon(Icons.call,size: 30,color: AppColors.white,),
+    'title': 'Argent Call',
+    'onTap': (){
+      Get.toNamed(EmergencyNumberScreen.name);
+    },
+  },
+  {
+    'icon': const Icon(Icons.add,size: 30,color: AppColors.white,),
+    'title': 'Add Trusted Contact',
+    'onTap': (){
+      Get.toNamed(TrustedContactScreen.name);
+    },
+  },
 ];

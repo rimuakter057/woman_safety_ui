@@ -22,7 +22,7 @@ class WomanSafety extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme(context),
-      initialRoute: GoogleMapHomeScreen.name,
+      initialRoute: MainNavScreen.name,
       onGenerateRoute: AppRoutes.onGenerateRoute,
       initialBinding: ControllerBinder(),
     );

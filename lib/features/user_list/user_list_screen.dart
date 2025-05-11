@@ -2,10 +2,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:woman_safety_ui/app/utils/color/app_colors.dart';
 import 'package:woman_safety_ui/features/chatting/data/models/logged_user_list_model.dart';
+import 'package:woman_safety_ui/features/common/widget/Custom_container.dart';
 import 'package:woman_safety_ui/features/common/widget/custom_appbar.dart';
-import 'package:woman_safety_ui/features/common/widget/custom_divider.dart';
-
 import '../auth/screens/sign_in_screen.dart';
 import '../chatting/screens/AllChatList/MessagePageDetails/message_details.dart';
 import '../common/widget/custom_icon.dart';
@@ -38,7 +38,8 @@ class _UserListScreenState extends State<UserListScreen> {
 
     //if user is not null, show user list
     return Scaffold(
-appBar: CustomAppBar(title: "user List Screen",leadingWidget: CustomIcon(),),
+      backgroundColor: AppColors.white,
+     appBar: CustomAppBar(title: "user List Screen",leadingWidget: CustomIcon(),),
       body: StreamBuilder(
           stream: FirebaseDatabase.instance.ref('users').onValue,
           builder: (context,snapshot){
@@ -70,20 +71,28 @@ appBar: CustomAppBar(title: "user List Screen",leadingWidget: CustomIcon(),),
                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
                    child: Column(
                      children: [
-                       Card(
-                         child: ListTile(
-                           title: Text(users[index].name),
-                           subtitle: Text(users[index].email!),
-                           onTap: (){
-                             Get.toNamed(MessageDetails.name,
-                                 arguments: {
-                                   'receiverId': users[index].uid,
-                                   'receiverName': users[index].name,
-                                 });
-                           },
-                         ),
+                       ListTile(
+                         title: Text(users[index].name),
+                         subtitle: Text(users[index].email!),
+                         trailing: CustomContainer(
+                           borderRadius: BorderRadius.circular(10),
+                           containerColor: AppColors.secondaryPrimaryColor,
+                             height: 20,
+                             width: 60,
+                             child: Center(child: Text("active",style: TextStyle(
+                               color: AppColors.white,
+                               fontSize: 14,
+                               fontWeight: FontWeight.bold
+                             ),))),
+                         onTap: (){
+                           Get.toNamed(MessageDetails.name,
+                               arguments: {
+                                 'receiverId': users[index].uid,
+                                 'receiverName': users[index].name,
+                               });
+                         },
                        ),
-                       const CustomDivider(),
+
                      ],
                    ),
                  );
