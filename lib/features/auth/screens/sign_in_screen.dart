@@ -131,7 +131,7 @@ class _SignInScreenState extends State<SignInScreen> {
 
                     ///sign in button
                     CustomButton(
-                        text: 'Sign In Phone Number',
+                        text: 'Sign In With Google',
                         onPressed: () {
                           Get.toNamed(SignInPhoneScreen.name);
                         }),

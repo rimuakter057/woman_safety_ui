@@ -56,6 +56,7 @@ dependencies:
   location: ^8.0.0
   http: ^1.4.0
   share_plus: ^11.0.0
+  geocoding: ^3.0.0
 
 
 

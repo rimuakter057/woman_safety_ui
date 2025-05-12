@@ -83,17 +83,18 @@ class _GoogleMapHomeScreenState extends State<GoogleMapHomeScreen> {
     await Geolocator.openLocationSettings();
   }
 
-  // 🔗 Share Location Method
+  // Share Location Method
   Future<void> _shareLocation() async {
     await _getCurrentLocation();
     if (_currentPosition != null) {
       final latitude = _currentPosition!.latitude;
       final longitude = _currentPosition!.longitude;
 
+      // Google Maps URL with location coordinates
       final String mapUrl =
           "https://www.google.com/maps/search/?api=1&query=$latitude,$longitude";
 
-      final String message = "📍 My Location:\n$mapUrl";
+      final String message = "My Location:\n$mapUrl"; // Only the map link
 
       Share.share(message);
     } else {
@@ -114,7 +115,7 @@ class _GoogleMapHomeScreenState extends State<GoogleMapHomeScreen> {
             onPressed: _getCurrentLocation,
             child: Icon(Icons.location_searching, color: AppColors.primaryColor),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           FloatingActionButton(
             heroTag: 'share',
             onPressed: _shareLocation,
@@ -122,7 +123,7 @@ class _GoogleMapHomeScreenState extends State<GoogleMapHomeScreen> {
           ),
         ],
       ),
-      appBar: CustomAppBar(
+      appBar: const CustomAppBar(
         title: "Google Map",
         leadingWidget: CustomIcon(),
       ),
@@ -131,21 +132,21 @@ class _GoogleMapHomeScreenState extends State<GoogleMapHomeScreen> {
           FlutterMap(
             mapController: mapController,
             options: const MapOptions(
-              initialCenter: LatLng(25.634368995091165, 88.58862597495317),
-              initialZoom: 2,
+              initialCenter: LatLng(24.85916185626852, 89.77556977392202),
+              initialZoom: 3,
             ),
             children: [
               TileLayer(
                 urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-                maxZoom: 19,
+                maxZoom: 25,
               ),
-              CurrentLocationLayer(
+              const CurrentLocationLayer(
                 style: LocationMarkerStyle(
                   marker: DefaultLocationMarker(
                     child: Icon(Icons.location_on, color: AppColors.primaryColor),
                   ),
                   markerDirection: MarkerDirection.heading,
-                  markerSize: const Size(40, 40),
+                  markerSize: Size(40, 40),
                 ),
               ),
             ],

@@ -43,7 +43,7 @@ class NoteText extends StatelessWidget {
               text:
               'নারী বলে অসম্মান করো না| নারীদের সুরক্ষা নিশ্চিত করা আমাদের সবার দায়িত্ব ',
               style: MyTextStyle.buttonTextStyle
-                  .copyWith(fontSize: AppSizes.height(context) * .03,color: AppColors.primaryColor),
+                  .copyWith(fontSize: AppSizes.height(context) * .03,color: AppColors.black),
               scrollAxis: Axis.horizontal,
               crossAxisAlignment: CrossAxisAlignment.start,
             ),
