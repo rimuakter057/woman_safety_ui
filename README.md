@@ -21,10 +21,10 @@
 
 ### 🔹 Row 3
 <p float="left">
-  <img src="assets/screenshots/home.jpg" width="190"/>
-  <img src="assets/screenshots/help.jpg.jpg" width="200"/>
+  <img src="assets/screenshots/home.jpg" width="200"/>
+  <img src="assets/screenshots/help.jpg" width="200"/>
   <img src="assets/screenshots/emergency_number.jpg" width="200"/>
-  <img src="assets/screenshots/faq.jpg" width="190"/>
+  <img src="assets/screenshots/faq.jpg" width="200"/>
 </p>
 ### 🔹 Row 4
 <p float="left">
