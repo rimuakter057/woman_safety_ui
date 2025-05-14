@@ -31,14 +31,11 @@
   <img src="assets/screenshots/sos_msg.jpg" width="200"/>
   <img src="assets/screenshots/user.jpg" width="200"/>
   <img src="assets/screenshots/msg.jpg" width="200"/>
-  <img src="assets/screenshots/profile.jpg" width="200"/>
+  <img src="assets/screenshots/add_number.jpg" width="200"/>
 </p>
 ### 🔹 Row 5
 <p float="left">
- <img src="assets/screenshots/sos_msg.jpg" width="200"/>
-  <img src="assets/screenshots/user.jpg" width="200"/>
-  <img src="assets/screenshots/msg.jpg" width="200"/>
-  <img src="assets/screenshots/profile.jpg" width="200"/>
+ <img src="assets/screenshots/profile.jpg" width="200"/>
 </p>
 ---
 
