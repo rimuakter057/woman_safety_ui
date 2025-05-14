@@ -16,12 +16,14 @@ class HomeScreen extends StatelessWidget {
     final size = MediaQuery.sizeOf(context);
 
     return Scaffold(
-      drawer: const DrawerWidget(
-        userName: 'Rimu',
-        userEmail: 'email33@gmail.com',
-      ),
       floatingActionButton: FloatingWidget(),
-      appBar: const CustomAppBar(title: 'আমাদের সেবা সমূহ'),
+    appBar: AppBar(
+      backgroundColor: AppColors.primaryColor,
+      title:Text('আমাদের সেবা সমূহ',style: TextStyle(color: AppColors.white),),
+      centerTitle: true,
+      automaticallyImplyLeading: false,
+    ),
+    //  appBar: const CustomAppBar(title: 'আমাদের সেবা সমূহ'),
       body: Column(
         children: [
           const HeaderImage(),
