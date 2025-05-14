@@ -6,39 +6,40 @@
 
 ### 🔹 Row 1
 <p float="left">
-  <img src="assets/screenshots/splash.jpg" width="170"/>
-  <img src="assets/screenshots/sign_in.jpg" width="170"/>
-  <img src="assets/screenshots/sign_up.jpg" width="170"/>
-  <img src="assets/screenshots/email.jpg" width="170"/>
-  <img src="assets/screenshots/otp.jpg" width="170"/>
+  <img src="assets/screenshots/splash.jpg" width="200"/>
+  <img src="assets/screenshots/sign_in.jpg" width="200"/>
+  <img src="assets/screenshots/sign_up.jpg" width="200"/>
+  <img src="assets/screenshots/email.jpg" width="200"/>
 </p>
 ### 🔹 Row 2
 <p float="left">
-  <img src="assets/screenshots/confirmed.jpg" width="170"/>
-  <img src="assets/screenshots/map_permission.jpg" width="170"/>
-  <img src="assets/screenshots/map.jpg" width="170"/>
-  <img src="assets/screenshots/home.jpg" width="170"/>
-  <img src="assets/screenshots/help.jpg.jpg" width="170"/>
+  <img src="assets/screenshots/otp.jpg" width="200"/>
+  <img src="assets/screenshots/confirmed.jpg" width="200"/>
+  <img src="assets/screenshots/map_permission.jpg" width="200"/>
+  <img src="assets/screenshots/map.jpg" width="200"/>
 </p>
 
 ### 🔹 Row 3
 <p float="left">
-
-  <img src="assets/screenshots/emergency_number.jpg" width="170"/>
-  <img src="assets/screenshots/faq.jpg" width="170"/>
-  <img src="assets/screenshots/sos_msg.jpg" width="170"/>
-  <img src="assets/screenshots/user.jpg" width="170"/>
-  <img src="assets/screenshots/msg.jpg" width="170"/>
+  <img src="assets/screenshots/home.jpg" width="200"/>
+  <img src="assets/screenshots/help.jpg.jpg" width="200"/>
+  <img src="assets/screenshots/emergency_number.jpg" width="200"/>
+  <img src="assets/screenshots/faq.jpg" width="200"/>
 </p>
 ### 🔹 Row 4
 <p float="left">
-  <img src="assets/screenshots/profile.jpg" width="170"/>
-  <img src="assets/screenshots/sos_msg.jpg" width="170"/>
-  <img src="assets/screenshots/user.jpg" width="170"/>
-  <img src="assets/screenshots/msg.jpg" width="170"/>
-  <img src="assets/screenshots/profile.jpg" width="170"/>
+  <img src="assets/screenshots/sos_msg.jpg" width="200"/>
+  <img src="assets/screenshots/user.jpg" width="200"/>
+  <img src="assets/screenshots/msg.jpg" width="200"/>
+  <img src="assets/screenshots/profile.jpg" width="200"/>
 </p>
-
+### 🔹 Row 5
+<p float="left">
+ <img src="assets/screenshots/sos_msg.jpg" width="200"/>
+  <img src="assets/screenshots/user.jpg" width="200"/>
+  <img src="assets/screenshots/msg.jpg" width="200"/>
+  <img src="assets/screenshots/profile.jpg" width="200"/>
+</p>
 ---
 
 ## 🛠️ Technologies Used
